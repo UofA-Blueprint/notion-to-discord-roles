@@ -1,0 +1,19 @@
+{
+  "name": "notion-to-discord-roles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UofA-Blueprint/notion-to-discord-roles.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "dotenv": "^16.4.2",
+    "jest": "^29.7.0"
+  }
+}
