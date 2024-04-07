@@ -1,11 +1,24 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 
-const data = new SlashCommandBuilder()
-	.setName('ban')
-	.setDescription('Select a member and ban them.')
-	.addUserOption(option =>
-		option
-			.setName('target')
-			.setDescription('The member to ban')
-			.setRequired(true))
-	.setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles);
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('giverole')
+		.setDescription('Gives a user a role')
+		.addRoleOption(option =>
+			option.setName('role')
+				.setDescription('Role to give')
+				.setRequired(true))
+		.addUserOption(option => option.setName('user').setDescription('User to give role to').setRequired(true)),
+	async execute(interaction) {
+		const role = interaction.options.getRole('role');
+		const user = interaction.options.getMember('user');
+		const guild = interaction.guild;
+		if (!role) {
+			await interaction.reply(`Role not found.`);
+			return;
+		}
+		await user.roles.add(role);
+
+		await interaction.reply(`Role '${role.name}' has been given to '${user}'.`);
+	},
+};
