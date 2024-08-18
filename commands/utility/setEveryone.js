@@ -9,12 +9,13 @@ module.exports = {
                 .setDescription('Role to give')
                 .setRequired(true)),
     async execute(interaction) {
+	console.log("Start set everyone attempt")
         const { options, guild } = interaction;
-        const members = await guild.members.fetch();
         const role = options.getRole('role');
-        if (!interaction.member.permissions.has(PermissionsBitField.FLAGS.ADMINISTRATOR))
-            return await interaction.reply({ content: 'You do not have permission to use this command', ephemeral: true });
-        else {
+	//if (!interaction.member.permissions.has(PermissionsBitField.FLAGS.ADMINISTRATOR))
+        //    return await interaction.reply({ content: 'You do not have permission to use this command', ephemeral: true });
+        if (true) {
+	    members = await guild.members.fetch();
             await interaction.reply({ content: `Setting role ${role.name} to everyone` });
             let num = 0;
             setTimeout(() => {
