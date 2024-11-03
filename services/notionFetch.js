@@ -27,9 +27,12 @@ function collectHandles(res){
     for (row of res){
         handleRichText = row.properties["Discord Handle"].rich_text
         if (handleRichText.length > 0) {
-            handles[handleRichText[0].plain_text] = [row.properties.Name.title[0].plain_text,
-                row.properties['Current Role'].select.name]
-
+            handles[handleRichText[0].plain_text] = {"name": row.properties.Name.title[0].plain_text,
+                				     "current role": row.properties['Current Role'].select.name}
+	    if (row.properties['Current Team'].select){
+	    	handles[handleRichText[0].plain_text]["current team"]  = row.properties['Current Team'].select.name
+	    	//console.log(handles[handleRichText[0].plain_text])
+	    }
         }
 
 

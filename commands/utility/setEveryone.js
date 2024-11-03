@@ -9,9 +9,11 @@ module.exports = {
                 .setDescription('Role to give')
                 .setRequired(true)),
     async execute(interaction) {
+	console.log("Start set everyone attempt")
         const { options, guild } = interaction;
         const members = await guild.members.fetch();
         const role = options.getRole('role');
+
         await interaction.deferReply();
         await interaction.editReply({ content: `Setting role ${role.name} to everyone` });
         let num = 0;
@@ -30,8 +32,7 @@ module.exports = {
                 await interaction.editReply({ content: '', embeds: [embed] });
             })
         }, 100)
-
     }
-}
 
+}
 
