@@ -15,7 +15,7 @@ module.exports = {
         const user = interaction.options.getMember('user');
         const guild = interaction.guild;
         const username = user.user.username
-
+	console.log("Requested change of role")
         let ndata = await fetchNotionDatabase(notion, notion_page_id)
         let roledata = await collectHandles(ndata.results)
         const role = guild.roles.cache.find(role => role.name === roledata[username][1]);

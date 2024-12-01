@@ -9,6 +9,7 @@ module.exports = {
                 .setDescription('Role to give')
                 .setRequired(true)),
     async execute(interaction) {
+	await interaction.deferReply({ ephemeral: true });
 	console.log("Start set everyone attempt")
         const { options, guild } = interaction;
         const members = await guild.members.fetch();

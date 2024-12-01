@@ -10,6 +10,7 @@ module.exports = {
 				.setRequired(true))
 		.addUserOption(option => option.setName('user').setDescription('User to give role to').setRequired(true)),
 	async execute(interaction) {
+		console.log("Atempt")
 		const role = interaction.options.getRole('role');
 		const user = interaction.options.getMember('user');
 		const guild = interaction.guild;
