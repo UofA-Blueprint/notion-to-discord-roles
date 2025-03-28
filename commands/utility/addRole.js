@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-
+// slash command for giving a single user a role - does not really matter anymore was just a command for initial testing
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('giverole')

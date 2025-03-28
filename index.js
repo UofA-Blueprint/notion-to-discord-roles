@@ -25,6 +25,7 @@ for (const folder of commandFolders) {
 		}
 	}
 }
+// catching errors for wrong command names or missing commands 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
