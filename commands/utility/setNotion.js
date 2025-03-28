@@ -9,6 +9,7 @@ module.exports = {
 	.setName('setnotion')
 	.setDescription('Demo notion'),
 	async execute(interaction) {
+		await interaction.deferReply({ ephemeral: true });
 		console.log("Start set everyone attempt")
 		const { options, guild } = interaction;
 		
@@ -38,8 +39,8 @@ module.exports = {
 
 			}
 		})
-
-		await interaction.reply({ content: replyMessage });
+		interaction.editReply({ content: replyMessage })
+		//await interaction.reply({ content: replyMessage });
 
 	}
 }
